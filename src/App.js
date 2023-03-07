@@ -1,36 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import ports from './assets/ports';
+import portsJSON from './assets/ports';
 
 import './App.css';
 
 function App() {
 
+  const totalQuestions = portsJSON.length;
+
+  const [ports, setPorts] = useState(portsJSON);
   const [quizStarted, setQuizStarted] = useState(false);
-  const [correct, setCorrect] = useState(0);
+  const [correct, setCorrect] = useState([]);
+  const [portNumbers, setPortNumbers] = useState(portsJSON.map((p) => (p.port)));
   const [cursor, setCursor] = useState(0); // will keep track of which question we are on
-
-  const totalQuestions = ports.length;
-  const protocols = ports.map((p) => (p.service));
-  const portNumbers = ports.map((p) => (p.port));
-
-  console.log("PORTS", ports);
-  console.log("protocols", protocols);
-  console.log("portNumbers", portNumbers);
 
   function begin() {
     setQuizStarted(true);
+    setCorrect([]);
+    setCursor(0);
+    setPortNumbers(shuffle(portNumbers));
+    setPorts(shuffle(ports));
+
+    console.log("PORTS", ports);
+    console.log("portNumbers", portNumbers);
+
     console.log("begin");
   }
 
   function answerPort(port) {
     if (ports[cursor].port == port) {
-      console.log("CORRECT");
-      setCorrect(correct+1);
+      const newCorrect = correct.concat([port]);
+      console.log("CORRECT", newCorrect);
+      setCorrect(newCorrect);
     } else {
       console.log("WRONG");
     }
     nextQuestion();
+  }
+
+  function shuffle(array) {
+    var m = array.length, t, i;
+  
+    // While there remain elements to shuffle…
+    while (m) {
+  
+      // Pick a remaining element…
+      i = Math.floor(Math.random() * m--);
+  
+      // And swap it with the current element.
+      t = array[m];
+      array[m] = array[i];
+      array[i] = t;
+    }
+  
+    return array;
   }
 
   function nextQuestion() {
@@ -44,16 +67,20 @@ function App() {
       </header>
       {
         quizStarted && 
-        <div>
+        <div className="quiz-container">
           <div className="score">
-            <h3>{correct} / { totalQuestions }</h3>
+            <h3><span className="thin">Score:</span> &nbsp; {correct.length} / { totalQuestions }</h3>
           </div>
           <div>
-            <h2>{ ports[cursor].service }</h2>
-
-            { portNumbers.map((item,index)=>{ 
-              return <button key={index} onClick={() => { answerPort(item) }}>{ item }</button>
-             })}
+            <h2>
+              <span className="thin">Question {cursor + 1}:</span> &nbsp; { ports[cursor].service }
+            </h2>
+            <p>{ ports[cursor].description }</p>
+            <div className="button-container">
+              { portNumbers.map((item,index)=>{ 
+                return <button key={index} onClick={() => { answerPort(item) }}>{ item }</button>
+              })}
+            </div>
           </div>
         </div>
       }

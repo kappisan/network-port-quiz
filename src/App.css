@@ -26,6 +26,16 @@
   color: #6B9080;
 }
 
+.quiz-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.button-container {
+  margin: 40px auto 20px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

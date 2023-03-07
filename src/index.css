@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Golos+Text:wght@400;500;600;700&family=Mynerve&family=Poppins:wght@100;200;300;500;700;900&display=swap');
 
-
 html,
 body {
   margin: 0;
@@ -25,6 +24,7 @@ code {
 
 p {
   margin: 0;
+  font-weight: 300;
 }
 
 button {
@@ -32,4 +32,9 @@ button {
   padding: 10px;
   cursor: pointer;
   margin: 10px;
+}
+
+.thin {
+  font-weight: 200;
+  color: #6B9080;
 }
