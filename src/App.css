@@ -1,0 +1,36 @@
+/*
+  #6B9080
+  #A4C3B2
+  #CCE3DE
+  #EAF4F4
+  #F6FFF8
+*/
+
+.App {
+  text-align: center;
+  background-color: #EAF4F4;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #222;
+}
+
+.App-link {
+  color: #6B9080;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
