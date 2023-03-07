@@ -17,9 +17,13 @@ h1 {
   font-weight: 200;
 }
 
+h2,
+h3 {
+  margin: 10px 20px;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 p {
@@ -32,14 +36,42 @@ button {
   padding: 10px;
   cursor: pointer;
   margin: 10px;
+  border-radius: 6px;
+  border-color: #444;
 }
 
 button:disabled {
-  opacity: 0.8;
+  opacity: 0.9;
   cursor: default;
 }
 
 .thin {
   font-weight: 200;
   color: #6B9080;
+}
+
+@media (max-width: 1260px) {
+  h1 {
+    margin: 10px 20px;
+    font-size: 1.8em;
+  }
+  button {
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 780px) {
+  h1 {
+    margin: 0 20px;
+    font-size: 1.5em;
+  }
+  button {
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 380px) {
+  button {
+    min-width: 120px;
+  }
 }

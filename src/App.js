@@ -69,21 +69,26 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <header className="app-header">
         <h1>Network Port Quiz</h1>
       </header>
       {
+        quizStarted &&
+        <div className="score">
+          <h3><span className="thin">Score:</span> &nbsp; { correct.length } / { totalQuestions }</h3>
+        </div>
+      }
+      {
         quizStarted && !quizEnded &&
         <div className="quiz-container">
-          <div className="score">
-            <h3><span className="thin">Score:</span> &nbsp; {correct.length} / { totalQuestions }</h3>
-          </div>
           <div>
             <h2>
               <span className="thin">Question {cursor + 1}:</span> &nbsp; { ports[cursor].service }
             </h2>
-            <p>{ ports[cursor].description }</p>
+            <div className="description-container">
+              <p>{ ports[cursor].description }</p>
+            </div>
             <div className="button-container">
               { portNumbers.map((item,index)=>{ 
                 return (
@@ -102,7 +107,7 @@ function App() {
       {
         quizStarted && quizEnded &&
         <div>
-          <h3>RESULTS</h3>
+          <h2 className="final-score">{ Math.floor((correct.length / totalQuestions) * 100) }%</h2>
 
           <button onClick={begin}>RESTART</button>
         </div>
