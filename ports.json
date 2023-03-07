@@ -1,0 +1,110 @@
+[
+    {
+        "layer": "7",
+        "service": "HTTP",
+        "port": "80",
+        "description": "Hypertext Transfer Protocol (HTTP) is an application layer protocol in the Internet protocol suite model for distributed, collaborative, hypermedia information systems."
+    },
+    {
+        "layer": "7",
+        "service": "HTTPS",
+        "port": "443",
+        "description": "Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP). It uses encryption for secure communication over a computer network, and is widely used on the Internet."
+    },
+    {
+        "layer": "5",
+        "service": "NetBIOS",
+        "port": "137-139",
+        "description": "Network Basic Input/Output System. As strictly an API, NetBIOS is not a networking protocol."
+    },
+    {
+        "layer": "7",
+        "service": "POP",
+        "port": "110",
+        "description": "Post Office Protocol (POP) is an application-layer Internet standard protocol used by e-mail clients to retrieve e-mail from a mail server. POP version 3 (POP3) is the version in common use, and along with IMAP."
+    },
+    {
+        "layer": "7",
+        "service": "IMAP",
+        "port": "143",
+        "description": "Internet Message Access Protocol (IMAP) is an Internet standard protocol used by email clients to retrieve email messages from a mail server over a TCP/IP connection."
+    },
+    {
+        "layer": "7",
+        "service": "SMTP",
+        "port": "25",
+        "description": "The Simple Mail Transfer Protocol (SMTP) is an Internet standard communication protocol for electronic mail transmission."
+    },
+    {
+        "layer": "7",
+        "service": "SIP",
+        "port": "5060, 5061",
+        "description": "Session Initiation Protocol (SIP) is transported over UDP and TCP. It is an Application Layer control protocol that creates, modifies, and terminates sessions with one or more participants. SIP is a peer-to-peer protocol."
+    },
+    {
+        "layer": "7",
+        "service": "MGCP",
+        "port": "2427, 2727",
+        "description": "The Media Gateway Control Protocol (MGCP) is a telecommunication protocol for signaling and call control in hybrid voice over IP (VoIP) and traditional telecommunication systems."
+    },
+    {
+        "layer": "4",
+        "service": "H.323",
+        "port": "1720",
+        "description": "H.323 is a recommendation from the ITU Telecommunication Standardization Sector (ITU-T) that defines the protocols to provide audio-visual communication sessions on any packet network."
+    },
+    {
+        "layer": "7",
+        "service": "FTP",
+        "port": "20, 21",
+        "description": "The File Transfer Protocol (FTP) is a standard communication protocol used for the transfer of computer files from a server to a client on a computer network."
+    },
+    {
+        "layer": "7",
+        "service": "SNMP",
+        "port": "161",
+        "description": "Simple Network Management Protocol (SNMP) is an Internet Standard protocol for collecting and organizing information about managed devices on IP networks and for modifying that information to change device behaviour."
+    },
+    {
+        "layer": "7",
+        "service": "SSH",
+        "port": "22",
+        "description": "The Secure Shell Protocol (SSH) is a cryptographic network protocol for operating network services securely over an unsecured network."
+    },
+    {
+        "layer": "7",
+        "service": "TELNET",
+        "port": "23",
+        "description": "Telnet (short for 'teletype network') is a client/server application protocol that provides access to virtual terminals of remote systems on local area networks or the Internet."
+    },
+    {
+        "layer": "7",
+        "service": "DNS",
+        "port": "53",
+        "description": "The Domain Name System (DNS) is a hierarchical and distributed naming system for computers, services, and other resources in the Internet or other Internet Protocol (IP) networks."
+    },
+    {
+        "layer": "7",
+        "service": "DHCP",
+        "port": "67, 68",
+        "description": "Dynamic Host Configuration Protocol (DHCP) is a network management protocol used on Internet Protocol (IP) networks for automatically assigning IP addresses and other communication parameters to devices connected to the network using a client–server architecture."
+    },
+    {
+        "layer": "7",
+        "service": "TFTP",
+        "port": "69",
+        "description": "TFTP stands for Trivial File Transfer Protocol. TFTP is a protocol that can be used to transfer files over networks and between computers. TFTP is a simpler way to transfer files in comparison to FTP and SFTP."
+    },
+    {
+        "layer": "5",
+        "service": "SMB",
+        "port": "445",
+        "description": "Server Message Block (SMB) enables file sharing, printer sharing, network browsing, and inter-process communication (through named pipes) over a computer network. SMB serves as the basis for Microsoft's Distributed File System implementation."
+    },
+    {
+        "layer": "7",
+        "service": "RTP",
+        "port": "5004, 5005",
+        "description": "The Real-time Transport Protocol (RTP) is a network protocol for delivering audio and video over IP networks. RTP is used in communication and entertainment systems that involve streaming media."
+    }
+]
