@@ -10,19 +10,18 @@ function App() {
 
   const [ports, setPorts] = useState(portsJSON);
   const [quizStarted, setQuizStarted] = useState(false);
+  const [quizEnded, setQuizEnded] = useState(false);
   const [correct, setCorrect] = useState([]);
   const [portNumbers, setPortNumbers] = useState(portsJSON.map((p) => (p.port)));
   const [cursor, setCursor] = useState(0); // will keep track of which question we are on
 
   function begin() {
     setQuizStarted(true);
+    setQuizEnded(false);
     setCorrect([]);
     setCursor(0);
     setPortNumbers(shuffle(portNumbers));
     setPorts(shuffle(ports));
-
-    console.log("PORTS", ports);
-    console.log("portNumbers", portNumbers);
 
     console.log("begin");
   }
@@ -57,7 +56,16 @@ function App() {
   }
 
   function nextQuestion() {
-    setCursor((cursor + 1) % totalQuestions);
+    console.log("cursor", cursor, totalQuestions);
+    const newCursor = cursor + 1;
+
+    if (newCursor == totalQuestions) {
+      console.log("NO MORE QUESTIONS");
+      setQuizEnded(true);
+      return;
+    }
+
+    setCursor(newCursor % totalQuestions);
   }
 
   return (
@@ -66,7 +74,7 @@ function App() {
         <h1>Network Port Quiz</h1>
       </header>
       {
-        quizStarted && 
+        quizStarted && !quizEnded &&
         <div className="quiz-container">
           <div className="score">
             <h3><span className="thin">Score:</span> &nbsp; {correct.length} / { totalQuestions }</h3>
@@ -81,17 +89,30 @@ function App() {
                 return (
                   <button 
                     key={index}
+                    disabled={ correct.includes(item) }
                     className={ correct.includes(item) ? 'correct' : '' }
-                    onClick={() => { answerPort(item) }}>{ item }</button>
+                    onClick={() => { answerPort(item) }}>{ item }
+                  </button>
                 )
               })}
             </div>
           </div>
         </div>
       }
-      <div>
-       { !quizStarted && <button onClick={begin}>BEGIN</button> }
-      </div>
+      {
+        quizStarted && quizEnded &&
+        <div>
+          <h3>RESULTS</h3>
+
+          <button onClick={begin}>RESTART</button>
+        </div>
+      }
+      {
+        !quizStarted && 
+        <div>
+          <button onClick={begin}>BEGIN</button>
+        </div>
+      }
     </div>
   );
 }

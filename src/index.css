@@ -34,6 +34,11 @@ button {
   margin: 10px;
 }
 
+button:disabled {
+  opacity: 0.8;
+  cursor: default;
+}
+
 .thin {
   font-weight: 200;
   color: #6B9080;
