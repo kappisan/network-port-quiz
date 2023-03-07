@@ -78,7 +78,12 @@ function App() {
             <p>{ ports[cursor].description }</p>
             <div className="button-container">
               { portNumbers.map((item,index)=>{ 
-                return <button key={index} onClick={() => { answerPort(item) }}>{ item }</button>
+                return (
+                  <button 
+                    key={index}
+                    className={ correct.includes(item) ? 'correct' : '' }
+                    onClick={() => { answerPort(item) }}>{ item }</button>
+                )
               })}
             </div>
           </div>

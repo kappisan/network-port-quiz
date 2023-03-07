@@ -22,8 +22,9 @@
   color: #222;
 }
 
-.App-link {
-  color: #6B9080;
+.correct {
+  background-color: #A4C3B2;
+  border-color: #006600;
 }
 
 .quiz-container {
