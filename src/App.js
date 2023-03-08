@@ -115,6 +115,10 @@ function App() {
       {
         !quizStarted && 
         <div>
+          <div className="description-container">
+            <p>Test your knowledge of common network ports and protocols.</p>
+          </div>
+
           <button onClick={begin}>BEGIN</button>
         </div>
       }
