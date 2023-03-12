@@ -42,6 +42,14 @@
   font-size: 4em;
 }
 
+.red {
+  color: #900;
+}
+
+.green {
+  color: #070;
+}
+
 .description-container {
   height: 80px;
   margin: 40px auto 20px;

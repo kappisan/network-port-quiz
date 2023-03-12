@@ -29,12 +29,12 @@ function App() {
   }
 
   function answerPort(port) {
-    if (ports[cursor].port == port) {
+    if (ports[cursor].port === port) {
       const newCorrect = correct.concat([port]);
       console.log("CORRECT", newCorrect);
       setCorrect(newCorrect);
     } else {
-      const newIncorrect = incorrect.concat([ports[cursor]]);
+      const newIncorrect = incorrect.concat({...ports[cursor], wrong: port});
       console.log("WRONG", newIncorrect);
       setIncorrect(newIncorrect);
     }
@@ -117,16 +117,29 @@ function App() {
 
           { incorrect.length > 0 && 
             <div className="description-container">
-              <h3>Incorrect Answers</h3>
+              <h2>Incorrect Answers</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Protocol</th>
+                    <th>Should be</th>
+                    <th>Your answer</th>
+                  </tr>
+                </thead>
+                <tbody>
               { 
                 incorrect.map((item,index)=>{ 
                 return (
-                    <div key={index}>
-                      { item.service } runs on port { item.port }
-                    </div>
+                    <tr key={index}>
+                      <td>{ item.service }</td>
+                      <td className="green">{ item.port }</td>
+                      <td className="red thin">{ item.wrong }</td>
+                    </tr>
                   )
                 })
               }
+              </tbody>
+              </table>
             </div>
           }
         </div>
