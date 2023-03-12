@@ -12,6 +12,7 @@ function App() {
   const [quizStarted, setQuizStarted] = useState(false);
   const [quizEnded, setQuizEnded] = useState(false);
   const [correct, setCorrect] = useState([]);
+  const [incorrect, setIncorrect] = useState([]);
   const [portNumbers, setPortNumbers] = useState(portsJSON.map((p) => (p.port)));
   const [cursor, setCursor] = useState(0); // will keep track of which question we are on
 
@@ -19,6 +20,7 @@ function App() {
     setQuizStarted(true);
     setQuizEnded(false);
     setCorrect([]);
+    setIncorrect([]);
     setCursor(0);
     setPortNumbers(shuffle(portNumbers));
     setPorts(shuffle(ports));
@@ -32,7 +34,9 @@ function App() {
       console.log("CORRECT", newCorrect);
       setCorrect(newCorrect);
     } else {
-      console.log("WRONG");
+      const newIncorrect = incorrect.concat([ports[cursor]]);
+      console.log("WRONG", newIncorrect);
+      setIncorrect(newIncorrect);
     }
     nextQuestion();
   }
@@ -110,6 +114,21 @@ function App() {
           <h2 className="final-score">{ Math.floor((correct.length / totalQuestions) * 100) }%</h2>
 
           <button onClick={begin}>RESTART</button>
+
+          { incorrect.length > 0 && 
+            <div className="description-container">
+              <h3>Incorrect Answers</h3>
+              { 
+                incorrect.map((item,index)=>{ 
+                return (
+                    <div key={index}>
+                      { item.service } runs on port { item.port }
+                    </div>
+                  )
+                })
+              }
+            </div>
+          }
         </div>
       }
       {
