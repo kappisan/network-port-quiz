@@ -8,7 +8,6 @@
 
 .app {
   text-align: center;
-  background-color: #EAF4F4;
   padding: 20px;
   min-height: 100vh;
 }
@@ -41,6 +40,14 @@
 
 .final-score {
   font-size: 4em;
+}
+
+.red {
+  color: #900;
+}
+
+.green {
+  color: #070;
 }
 
 .description-container {

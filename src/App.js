@@ -12,6 +12,7 @@ function App() {
   const [quizStarted, setQuizStarted] = useState(false);
   const [quizEnded, setQuizEnded] = useState(false);
   const [correct, setCorrect] = useState([]);
+  const [incorrect, setIncorrect] = useState([]);
   const [portNumbers, setPortNumbers] = useState(portsJSON.map((p) => (p.port)));
   const [cursor, setCursor] = useState(0); // will keep track of which question we are on
 
@@ -19,6 +20,7 @@ function App() {
     setQuizStarted(true);
     setQuizEnded(false);
     setCorrect([]);
+    setIncorrect([]);
     setCursor(0);
     setPortNumbers(shuffle(portNumbers));
     setPorts(shuffle(ports));
@@ -27,12 +29,14 @@ function App() {
   }
 
   function answerPort(port) {
-    if (ports[cursor].port == port) {
+    if (ports[cursor].port === port) {
       const newCorrect = correct.concat([port]);
       console.log("CORRECT", newCorrect);
       setCorrect(newCorrect);
     } else {
-      console.log("WRONG");
+      const newIncorrect = incorrect.concat({...ports[cursor], wrong: port});
+      console.log("WRONG", newIncorrect);
+      setIncorrect(newIncorrect);
     }
     nextQuestion();
   }
@@ -110,6 +114,34 @@ function App() {
           <h2 className="final-score">{ Math.floor((correct.length / totalQuestions) * 100) }%</h2>
 
           <button onClick={begin}>RESTART</button>
+
+          { incorrect.length > 0 && 
+            <div className="description-container">
+              <h2>Incorrect Answers</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Protocol</th>
+                    <th>Should be</th>
+                    <th>Your answer</th>
+                  </tr>
+                </thead>
+                <tbody>
+              { 
+                incorrect.map((item,index)=>{ 
+                return (
+                    <tr key={index}>
+                      <td>{ item.service }</td>
+                      <td className="green">{ item.port }</td>
+                      <td className="red thin">{ item.wrong }</td>
+                    </tr>
+                  )
+                })
+              }
+              </tbody>
+              </table>
+            </div>
+          }
         </div>
       }
       {
