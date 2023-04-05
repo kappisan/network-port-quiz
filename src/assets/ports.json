@@ -1,6 +1,12 @@
 [
     {
         "layer": "7",
+        "service": "Echo",
+        "port": "7",
+        "description": "Echo is a protocol that is used for debugging and measurement. It works by sending back all the data that was received from the source."
+    },
+    {
+        "layer": "7",
         "service": "HTTP",
         "port": "80",
         "description": "Hypertext Transfer Protocol (HTTP) is an application layer protocol in the Internet protocol suite model for distributed, collaborative, hypermedia information systems."
