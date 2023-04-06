@@ -25,6 +25,12 @@
     },
     {
         "layer": "7",
+        "service": "NTP",
+        "port": "123",
+        "description": "NTP uses a hierarchical, semi-layered system of time sources. Each level of this hierarchy is termed a stratum and is assigned a number starting with zero. Syncs clocks between devices."
+    },
+    {
+        "layer": "7",
         "service": "POP",
         "port": "110",
         "description": "Post Office Protocol (POP) is an application-layer Internet standard protocol used by e-mail clients to retrieve e-mail from a mail server. POP version 3 (POP3) is the version in common use."
@@ -67,8 +73,14 @@
     },
     {
         "layer": "7",
-        "service": "SNMP",
+        "service": "SNMP Trap",
         "port": "161",
+        "description": "An SNMP poll is initiated by the server and the router or switch responds to the server. An SNMP trap is initiated by the router or switch when it has information to send (usually some event happened) and does not want to wait for the server to ask for information."
+    },
+    {
+        "layer": "7",
+        "service": "SNMP",
+        "port": "162",
         "description": "Simple Network Management Protocol (SNMP) is an Internet Standard protocol for collecting and organizing information about managed devices on IP networks and for modifying that information to change device behaviour."
     },
     {
@@ -100,6 +112,12 @@
         "service": "TFTP",
         "port": "69",
         "description": "TFTP stands for Trivial File Transfer Protocol. TFTP is a protocol that can be used to transfer files over networks and between computers. TFTP is a simpler way to transfer files in comparison to FTP and SFTP."
+    },
+    {
+        "layer": "7",
+        "service": "RDP",
+        "port": "3389",
+        "description": "Provides an easy way to connect remotely to corporate resources, it is notorious for many security vulnerabilities."
     },
     {
         "layer": "5",
